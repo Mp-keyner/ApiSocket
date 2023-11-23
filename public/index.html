@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Chat</title>
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"
+      integrity="sha512-zoJXRvW2gC8Z0Xo3lBbao5+AS3g6YWr5ztKqaicua11xHo+AvE1b0lT9ODgrHTmNUxeCw0Ry4BGRYZfXu70weg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      const socket = io("http://localhost:8080");
+      socket.on("connection", (data) => {
+        console.log("Connection established", data.msg, "date:", data.date);
+      });
+
+      setTimeout(() => {
+        socket.emit("messageClient", {
+          msg: "success message desde client",
+          name: 'Keyner'
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>
