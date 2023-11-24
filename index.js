@@ -1,17 +1,14 @@
+// Server Model: Contiene todo el servidor de express + socket.io configurado
 const Server = require('./models/server');
+
+// Paquete para leer y establecer las variables de entorno
+require('dotenv').config();
+
+
+// Inicializar la instancia del server
 const server = new Server();
-server.execute()
+
+// Ejecutar el server
+server.execute();
 
 
-// io.on('connection', (socket) => { 
-//     console.log('Client connection con el ID: ', socket.id);
-//     io.emit('connection',{
-//         msg: 'success message',
-//         date: new Date()
-//     });
-//     socket.on("messageClient", (data) => {
-//         console.log("Connection established", data.msg, "name:", data.name);
-//       });
-//  });
-
- 
